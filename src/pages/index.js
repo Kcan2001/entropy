@@ -98,7 +98,7 @@ const IndexPage = () => {
 
               <Para>
                 LA's new event experience
-                <br /> - - - Coming soon - - -
+                <br /> - - Coming soon - -
               </Para>
             </div>
           </Container>
