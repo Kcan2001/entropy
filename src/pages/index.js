@@ -1,4 +1,5 @@
 import * as React from "react";
+import { isMobile } from "react-device-detect";
 import image from "../images/entropy.jpg";
 import logo from "../images/entropy-logo.png";
 import styled from "styled-components";
@@ -24,7 +25,7 @@ const Container = styled.div`
 
 const Logo = styled.img`
   position: relative;
-  width: 27%;
+  width: ${() => (isMobile ? "auto" : "27%")};
   height: 50%;
   z-index: 2;
   top: 10%;
@@ -57,7 +58,7 @@ const Para = styled.h3`
   line-height: 1.7;
   font-family: "Lato", georgia, serif;
   text-align: center;
-  margin-top: 125px;
+  margin-top: ${() => (isMobile ? "80px" : "125px")};
 `;
 
 // markup
