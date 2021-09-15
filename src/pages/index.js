@@ -27,7 +27,7 @@ const Container = styled.div`
 
 const Logo = styled.img`
   position: relative;
-  width: ${() => (isMobile ? "auto" : "27%")};
+  width: ${isMobile ? "auto" : "27%"};
   height: 50%;
   z-index: 2;
   top: 10%;
@@ -60,7 +60,7 @@ const Para = styled.h3`
   line-height: 1.7;
   font-family: "Lato", georgia, serif;
   text-align: center;
-  margin-top: ${() => (isMobile ? "80px" : "125px")};
+  margin-top: ${isMobile ? "80px" : "125px"};
 `;
 
 // markup
@@ -98,7 +98,7 @@ const IndexPage = () => {
 
               <Para>
                 LA's new event experience
-                <br /> - - Coming soon - -
+                <br /> - - - Coming soon - - -
               </Para>
             </div>
           </Container>
