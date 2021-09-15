@@ -3,6 +3,8 @@ import { isMobile } from "react-device-detect";
 import image from "../images/entropy.jpg";
 import logo from "../images/entropy-logo.png";
 import styled from "styled-components";
+import { Helmet } from "react-helmet";
+
 import { Layout, Button } from "antd";
 
 const { Header, Content } = Layout;
@@ -64,40 +66,45 @@ const Para = styled.h3`
 // markup
 const IndexPage = () => {
   return (
-    <Layout>
-      <Header
-        style={{
-          height: "60px",
-          backgroundColor: "#070818",
-          display: "flex",
-          alignItems: "center",
-        }}
-      >
-        <LogoButton>
-          <LogoText>E</LogoText>
-        </LogoButton>
-      </Header>
-      <Content style={{ height: "100vh" }}>
-        <Container>
-          <div
-            style={{
-              width: "100%",
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-            }}
-          >
-            <Image src={image} alt="background" />
-            <Logo src={logo} />
+    <>
+      <Helmet>
+        <meta name="icon" href="../images/favicon.png" />
+      </Helmet>
+      <Layout>
+        <Header
+          style={{
+            height: "60px",
+            backgroundColor: "#070818",
+            display: "flex",
+            alignItems: "center",
+          }}
+        >
+          <LogoButton>
+            <LogoText>E</LogoText>
+          </LogoButton>
+        </Header>
+        <Content style={{ height: "100vh" }}>
+          <Container>
+            <div
+              style={{
+                width: "100%",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+              }}
+            >
+              <Image src={image} alt="background" />
+              <Logo src={logo} />
 
-            <Para>
-              LA's new event experience
-              <br /> - - - Coming soon - - -
-            </Para>
-          </div>
-        </Container>
-      </Content>
-    </Layout>
+              <Para>
+                LA's new event experience
+                <br /> - - - Coming soon - - -
+              </Para>
+            </div>
+          </Container>
+        </Content>
+      </Layout>
+    </>
   );
 };
 
