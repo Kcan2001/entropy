@@ -1,5 +1,4 @@
 import * as React from "react";
-import { isMobile } from "react-device-detect";
 import image from "../images/entropy.jpg";
 import logo from "../images/entropy-logo.png";
 import styled from "styled-components";
