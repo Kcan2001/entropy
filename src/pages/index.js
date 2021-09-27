@@ -3,7 +3,7 @@ import image from "../images/entropy.jpg";
 import logo from "../images/entropy-logo.png";
 import styled from "styled-components";
 import { Helmet } from "react-helmet";
-import { isMobile } from "react-device-detect";
+import { useMediaQuery } from "react-responsive";
 
 import { Layout, Button } from "antd";
 
@@ -14,7 +14,11 @@ const Image = styled.img`
   width: 100%;
   opacity: 0.2;
   filter: grayscale(0.5);
-  display: ${isMobile ? "none" : "auto"};
+  display: none;
+
+  @media only screen and (min-width: 760px) {
+    display: block;
+  }
 `;
 
 const Container = styled.div`
@@ -30,7 +34,11 @@ const Container = styled.div`
 
 const Logo = styled.img`
   position: relative;
-  width: ${isMobile ? "80%" : "25%"};
+  width: 80%;
+
+  @media only screen and (min-width: 760px) {
+    width: 25%;
+  }
   margin-top: 50px;
   z-index: 2;
   top: 10%;
@@ -70,7 +78,10 @@ const Text = styled.p`
   color: white;
   font-weight: 400;
   font-size: 16px;
-  width: ${isMobile ? "80%" : "40%"};
+  width: 80%;
+  @media only screen and (min-width: 760px) {
+    width: 40%;
+  }
   letter-spacing: 2px;
   line-height: 1.7;
   font-family: "Lato", georgia, serif;
@@ -80,6 +91,8 @@ const Text = styled.p`
 
 // markup
 const IndexPage = () => {
+  const isMobile = useMediaQuery({ query: `(max-width: 760px)` });
+
   return (
     <>
       <Helmet>
