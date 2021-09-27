@@ -89,10 +89,24 @@ const Text = styled.p`
   margin-top: 25px;
 `;
 
+const Spacer1 = styled.div`
+  height: 200px;
+
+  @media only screen and (min-width: 760px) {
+    height: 0;
+  }
+`;
+
+const Spacer2 = styled.div`
+  height: 100px;
+
+  @media only screen and (min-width: 760px) {
+    height: 300px;
+  }
+`;
+
 // markup
 const IndexPage = () => {
-  const isMobile = useMediaQuery({ query: `(max-width: 760px)` });
-
   return (
     <>
       <Helmet>
@@ -125,7 +139,7 @@ const IndexPage = () => {
               <Logo src={logo} />
               <div style={{ position: "absolute" }}>
                 <Image src={image} alt="background" />
-                <div style={{ height: isMobile ? "200px" : 0 }} />
+                <Spacer1 />
                 <div
                   style={{
                     height: "50px",
@@ -155,14 +169,14 @@ const IndexPage = () => {
                 ​Welcome to the community.
               </Text>
 
-              <div style={{ height: isMobile ? "100px" : "300px" }} />
+              <Spacer2 />
             </div>
 
             <Para>What's next?</Para>
 
             <iframe
               src="https://lu.ma/embed-checkout/evt-yeAS24Lb6A3XlgP"
-              width={isMobile ? "300" : "600"}
+              width="400"
               height="1000"
               frameborder="0"
               style={{ border: "1px solid #bfcbda88", borderRadius: "4px" }}
