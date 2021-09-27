@@ -3,6 +3,7 @@ import image from "../images/entropy.jpg";
 import logo from "../images/entropy-logo.png";
 import styled from "styled-components";
 import { Helmet } from "react-helmet";
+import { isMobile } from "react-device-detect";
 
 import { Layout, Button } from "antd";
 
@@ -12,22 +13,25 @@ const Image = styled.img`
   height: 100%;
   width: 100%;
   opacity: 0.2;
-  position: absolute;
   filter: grayscale(0.5);
+  display: ${isMobile ? "none" : "auto"};
 `;
 
 const Container = styled.div`
   width: 100%;
   height: 100%;
+  padding-bottom: 80px;
   background-color: black;
   display: flex;
   justify-content: center;
+  align-items: center;
+  flex-direction: column;
 `;
 
 const Logo = styled.img`
   position: relative;
-  width: "auto";
-  height: 50%;
+  width: ${isMobile ? "80%" : "25%"};
+  margin-top: 50px;
   z-index: 2;
   top: 10%;
   border-radius: 50%;
@@ -62,12 +66,24 @@ const Para = styled.h3`
   margin-top: 125px;
 `;
 
+const Text = styled.p`
+  color: white;
+  font-weight: 400;
+  font-size: 16px;
+  width: ${isMobile ? "80%" : "40%"};
+  letter-spacing: 2px;
+  line-height: 1.7;
+  font-family: "Lato", georgia, serif;
+  text-align: center;
+  margin-top: 25px;
+`;
+
 // markup
 const IndexPage = () => {
   return (
     <>
       <Helmet>
-        <meta name="icon" href="../images/favicon.png" />
+        <meta name="icon" href="src/images/favicon.png" />
       </Helmet>
       <Layout>
         <Header
@@ -82,24 +98,65 @@ const IndexPage = () => {
             <LogoText>E</LogoText>
           </LogoButton>
         </Header>
-        <Content style={{ height: "100vh" }}>
+        <Content style={{ height: "100%" }}>
           <Container>
             <div
               style={{
                 width: "100%",
+                height: "100%",
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "center",
               }}
             >
-              <Image src={image} alt="background" />
               <Logo src={logo} />
+              <div style={{ position: "absolute" }}>
+                <Image src={image} alt="background" />
+                <div style={{ height: isMobile ? "200px" : 0 }} />
+                <div
+                  style={{
+                    height: "50px",
+                    width: "100%",
+                    background: "#121640",
+                    bottom: "10px",
+                    position: "relative",
+                  }}
+                />
+              </div>
 
-              <Para>
-                LA's new event experience
-                <br /> - - - Coming soon - - -
-              </Para>
+              <Para>LA's new event experience</Para>
+              <Text>
+                <strong>​en·tro·py</strong>
+                <br />
+                <br />
+                ​lack of order or predictability; gradual decline into disorder.
+                ​LA is filled with "intentions" and "mindfulness", but sometimes
+                you just want to party without restrictions or cares. This is
+                our community. ​Whether its ice melting, salt and sugar
+                dissolving, or coffee dispersed into water; entropy is the
+                natural flow of life. While intentions, self love/organization,
+                and hard work are important to keeping a healthy life;
+                experiencing our natural states of freedom is also important.
+                <br />
+                <br />
+                ​Welcome to the community.
+              </Text>
+
+              <div style={{ height: isMobile ? "100px" : "300px" }} />
             </div>
+
+            <Para>What's next?</Para>
+
+            <iframe
+              src="https://lu.ma/embed-checkout/evt-yeAS24Lb6A3XlgP"
+              width={isMobile ? "300" : "600"}
+              height="1000"
+              frameborder="0"
+              style={{ border: "1px solid #bfcbda88", borderRadius: "4px" }}
+              allowfullscreen=""
+              aria-hidden="false"
+              tabindex="0"
+            ></iframe>
           </Container>
         </Content>
       </Layout>
