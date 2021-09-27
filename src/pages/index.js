@@ -91,7 +91,7 @@ const Text = styled.p`
 
 // markup
 const IndexPage = () => {
-  const isNotMobile = useMediaQuery({ query: `(max-width: 760px)` });
+  const isMobile = useMediaQuery({ query: `(max-width: 760px)` });
 
   return (
     <>
@@ -125,7 +125,7 @@ const IndexPage = () => {
               <Logo src={logo} />
               <div style={{ position: "absolute" }}>
                 <Image src={image} alt="background" />
-                <div style={{ height: isNotMobile ? 0 : "200px" }} />
+                <div style={{ height: isMobile ? "200px" : 0 }} />
                 <div
                   style={{
                     height: "50px",
@@ -155,14 +155,14 @@ const IndexPage = () => {
                 ​Welcome to the community.
               </Text>
 
-              <div style={{ height: isNotMobile ? "300px" : "100px" }} />
+              <div style={{ height: isMobile ? "100px" : "300px" }} />
             </div>
 
             <Para>What's next?</Para>
 
             <iframe
               src="https://lu.ma/embed-checkout/evt-yeAS24Lb6A3XlgP"
-              width={isNotMobile ? "600" : "300"}
+              width={isMobile ? "300" : "600"}
               height="1000"
               frameborder="0"
               style={{ border: "1px solid #bfcbda88", borderRadius: "4px" }}
